@@ -1,6 +1,8 @@
+import random
 import rclpy
 from rclpy.node import Node
 from my_interfaces.msg import Greeting
+from rich.pretty import pretty_repr
 
 
 class ListenerNode(Node):
@@ -12,15 +14,15 @@ class ListenerNode(Node):
             self.on_greeting,
             10,
         )
+        self.data = [0] * 10
         self.get_logger().info('ListenerNode started, subscribing to /greetings')
 
     def on_greeting(self, msg: Greeting):
-        self.get_logger().info(
-            f'Received from "{msg.sender}" (#{msg.count}): {msg.message}'
-        )
+        self.data[random.randint(0, len(self.data) - 1)] = msg.count
+        self.get_logger().info(pretty_repr(self.data))
 
-        if msg.count == 3:
-            raise Exception('Simulated error after receiving 3 messages')
+        # if msg.count == 3:
+            # raise Exception('Simulated error after receiving 3 messages')
 
 
 def main(args=None):

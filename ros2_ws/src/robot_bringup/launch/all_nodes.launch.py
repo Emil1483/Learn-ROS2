@@ -18,12 +18,6 @@ def generate_launch_description():
                 respawn_delay=2.0,
             ),
             Node(
-                package="subscriber_pkg",
-                executable="listener_node",
-                respawn=True,
-                respawn_delay=2.0,
-            ),
-            Node(
                 package="cpp_subscriber_pkg",
                 executable="listener_node",
                 respawn=True,

@@ -15,11 +15,12 @@
         "ms-iot.vscode-ros"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "python.defaultInterpreterPath": "/repo_root/ros2_ws/.venv/bin/python",
+        "python.venvPath": "/repo_root/ros2_ws",
         "ros.distro": "humble",
         "terminal.integrated.cwd": "/repo_root/ros2_ws"
       }
     }
   },
-  "postCreateCommand": "rosdep update && rosdep install --from-paths /repo_root/ros2_ws/src --ignore-src -r -y && poetry install -C /repo_root/ros2_ws"
+"postCreateCommand": "rosdep update && rosdep install --from-paths /repo_root/ros2_ws/src --ignore-src -r -y && poetry install -C /repo_root/ros2_ws"
 }

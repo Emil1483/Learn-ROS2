@@ -15,3 +15,4 @@ ENV POETRY_VIRTUALENVS_OPTIONS_SYSTEM_SITE_PACKAGES=true
 # Source ROS2 on every bash session
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 RUN echo "source /repo_root/ros2_ws/install/setup.bash 2>/dev/null || true" >> /root/.bashrc
+RUN echo "export PYTHONPATH=\$PYTHONPATH:/repo_root/ros2_ws/.venv/lib/python3.10/site-packages" >> /root/.bashrc
