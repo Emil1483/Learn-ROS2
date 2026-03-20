@@ -6,7 +6,11 @@ RUN apt-get update && apt-get install -y \
     python3-rosdep \
     python3-pip \
     ros-humble-rclpy \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install poetry
+
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV POETRY_VIRTUALENVS_OPTIONS_SYSTEM_SITE_PACKAGES=true
 
 # Source ROS2 on every bash session
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
