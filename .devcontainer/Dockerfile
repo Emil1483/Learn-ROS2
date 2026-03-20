@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     python3-rosdep \
     python3-pip \
     ros-humble-rclpy \
+    ros-humble-rqt-graph \
+    ros-humble-foxglove-bridge \
     && rm -rf /var/lib/apt/lists/* \
     && pip install poetry
 

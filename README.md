@@ -90,3 +90,29 @@ rm -rf build install log
 ros2 topic list
 ros2 topic echo /greetings
 ```
+
+## Visualizing nodes and topics
+
+### rqt_graph
+
+Shows a graph of all running nodes and the topics connecting them. Requires X11 — on the **host** run:
+
+```bash
+xhost +local:docker
+```
+
+Then inside the container:
+
+```bash
+ros2 run rqt_graph rqt_graph
+```
+
+### Foxglove Studio
+
+Useful for visualizing topic data. Start the bridge inside the container:
+
+```bash
+ros2 run foxglove_bridge foxglove_bridge
+```
+
+Then open [studio.foxglove.dev](https://studio.foxglove.dev) in your browser, choose **Open connection**, and connect to `ws://localhost:8765`.
